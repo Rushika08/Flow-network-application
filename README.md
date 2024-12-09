@@ -26,17 +26,17 @@ To solve the committee assignment problem, we can now find a max flow on G (usin
 The first line provides the number of people, and the second line provides the number of committees. The third line takes the names of the individuals, and the next line defines the names of the committees. Then the program should read the maximum number of committees for each person and the name of the committee they are willing to join. Finally, the maximum number of people allowed for each committee is indicated. All these data should be inserted through the std:in.
 The example given below has 4 people and 3 committees. These people were named from P1-P4 and the committees were named from C1-C3. Then the maximum number of committees for the 4 people and the relevant committees are denoted. The last part will define the maximum number of people for the 3 committees (C1,C2 and C3).
 
-4
-3
-P1 P2 P3 P4
-C1 C2 C3
-2 C1 C2
-2 C2 C3
-2 C1 C3
-3 C1 C2 C3
-2
-3
-1
+4 \
+3 \
+P1 P2 P3 P4 \
+C1 C2 C3 \
+2 C1 C2 \
+2 C2 C3 \
+2 C1 C3 \
+3 C1 C2 C3 \
+2 \
+3 \
+1 \
 
 
 The program should print its output as given below.
