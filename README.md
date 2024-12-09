@@ -1,22 +1,22 @@
 # Flow network application example: committee assignment problem
 
-The input to the committee assignment problem consists of the following data: 
-	A set of people P={p_1,p_2,...,p_m}. 
-	A set of committees C={c_1,c_2,...,c_n}. 
-	Each person p_i has a set of committees W_i they are willing to be on. 
-	Each person p_i has a maximum number of committees m_i they are willing to be on in total. 
-	Each committee c_i has a required number of people z_i. 
+The input to the committee assignment problem consists of the following data: \
+	A set of people P={p_1,p_2,...,p_m}. \
+	A set of committees C={c_1,c_2,...,c_n}. \ 
+	Each person p_i has a set of committees W_i they are willing to be on. \
+	Each person p_i has a maximum number of committees m_i they are willing to be in total. \ 
+	Each committee c_i has a required number of people z_i.
 
 The problem is to come up with an assignment of people to committees that satisfies all the constraints, for example, each committee has exactly z_i different people assigned to it, and each person p_i is assigned only to committees they are willing to be on, and to no more than m_i committees in total, or report that this is not possible.
 
 
 ## Solution via flow network:
 
-The solution is to turn the problem into an appropriate flow network; finding a max flow will then correspond to solving the problem. In particular, we build a flow network G=(V,E)  as follows:
-	V=P∪C∪{s,t}. There is one vertex for each person, one for each committee, and two extra vertices to serve as the source and sink.
-	Connect the source s to each p_i with a directed edge of capacity m_i.
-	Connect each c_i to the sink t with a directed edge of capacity z_i.
-	Make a directed edge (p_i,c_j) with capacity 1 for each c_j ∈ W_i; that is, connect each person to those committees they are willing to be on.
+The solution is to turn the problem into an appropriate flow network; finding a max flow will then correspond to solving the problem. In particular, we build a flow network G=(V,E)  as follows: \
+	V=P∪C∪{s,t}. There is one vertex for each person, one for each committee, and two extra vertices to serve as the source and sink. \
+	Connect the source s to each p_i with a directed edge of capacity m_i. \
+	Connect each c_i to the sink t with a directed edge of capacity z_i. \
+	Make a directed edge (p_i,c_j) with capacity 1 for each c_j ∈ W_i; that is, connect each person to those committees they are willing to be on. \
 
 To solve the committee assignment problem, we can now find a max flow on G (using the Ford-Fulkerson algorithm). If the max flow has value z_1 + z_2 + ... + z_n (that is, if it completely saturates all the incoming edges to the sink), then a valid committee assignment exists, and we can read it off by assigning person p_i to committee c_j if and only if the edge (p_i,c_j) has a flow of 1. Otherwise, no valid committee assignment exists.
 
