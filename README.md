@@ -36,20 +36,20 @@ C1 C2 C3 \
 3 C1 C2 C3 \
 2 \
 3 \
-1 \
+1
 
 
 The program should print its output as given below.
 
-Person: Committee
-P1 : C1 C2
-P2 : C2 C3
-P3 : C1
+Person: Committee \
+P1 : C1 C2 \
+P2 : C2 C3 \
+P3 : C1 \
 P4 : C2
 
-Committee: Person
-C1 : P1 P3
-C2 : P1 P2 P4
+Committee: Person \
+C1 : P1 P3 \
+C2 : P1 P2 P4 \
 C3 : P2
 
 
